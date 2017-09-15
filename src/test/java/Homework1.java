@@ -1,18 +1,32 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import static core.HomeworkConstants1.*;
 
 public class Homework1 {
 
-    @Test
-    public void addPersonToLogsTest() throws IOException {
+    private WebDriver driver;
+
+    @BeforeMethod
+    public void setUp(Method method) {
         System.setProperty(PROPERTY1, PROPERTY2);
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.close();
+    }
+
+    @Test
+    public void loginAndFillContactForm() throws IOException {
         // Open test site by URL
         driver.navigate().to(TEST_URL);
         driver.manage().window().maximize();
@@ -59,9 +73,6 @@ public class Homework1 {
         Assert.assertTrue(log.getText().contains(LAST_NAME));
         Assert.assertTrue(log.getText().contains(SUBMIT));
         TakeScreenshot(driver, 4);
-
-        // Close browser
-        driver.close();
     }
 
     // Taking and saving screenshots of browser window during testing
