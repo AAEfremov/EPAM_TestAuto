@@ -1,3 +1,5 @@
+package Homework1;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -10,7 +12,7 @@ import java.lang.reflect.Method;
 
 import static core.HomeworkConstants1.*;
 
-public class Homework1 {
+public class LoginAndFeelContactForm {
 
     private WebDriver driver;
 
@@ -28,7 +30,7 @@ public class Homework1 {
     @Test
     public void loginAndFillContactForm() throws IOException {
         // Open test site by URL
-        driver.navigate().to(TEST_URL);
+        driver.navigate().to(TEST_URL2);
         driver.manage().window().maximize();
 
         // Assert Browser title
