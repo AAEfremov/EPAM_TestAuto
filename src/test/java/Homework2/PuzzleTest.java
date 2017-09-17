@@ -9,6 +9,7 @@ import static core.HomeworkConstants1.*;
 
 public class PuzzleTest {
     WebDriver driver;
+    long methodStart;
 
     @BeforeSuite
     public void setProperties(){
@@ -18,32 +19,34 @@ public class PuzzleTest {
     @BeforeTest
     public void initiateDriver(){
         driver = new ChromeDriver();
+        driver.navigate().to(TEST_URL1);
     }
 
     @BeforeClass
-    public void driverNotOpen(){
-        if(driver.toString().contains("null")) {
-            driver.quit();
-        }
+    public void titleOutput(){
+        System.out.println(driver.getTitle());
+        methodStart = System.currentTimeMillis();
+
     }
 
     @AfterMethod
-    public void titleOutput(){
-        System.out.println(driver.getTitle());
+    public void timeForTestOutput(){
+        System.out.println("Time spent for test: " + (System.currentTimeMillis() - methodStart) + " ms");
     }
 
     @AfterTest
-    public void testTime(){
-        System.out.println(System.currentTimeMillis());
+    public void closeDriver(){
+        driver.close();
     }
 
     @AfterSuite
     public void tearDown(){
-        driver.close();
+        if(driver.toString().contains("null")) {
+            driver.quit();
+        }
     }
     @Test
     public void simpleEPAMTest() {
-        driver.navigate().to(TEST_URL1);
         Assert.assertEquals(driver.getTitle(),
                 "EPAM | Software Product Development Services");
     }
