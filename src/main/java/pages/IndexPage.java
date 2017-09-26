@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
-import static data.HomeworkConstants.TEST_URL;
+import static data.HomeworkConstants.TEST_URL1;
 import static data.enums.indexPage.TextsAbovePictures.ABOVE_TEXTS;
 import static data.enums.indexPage.TextsUnderPictures.UNDER_TEXTS;
 
@@ -57,7 +57,7 @@ public class IndexPage extends ChromeSetup {
     private ElementsCollection textsAbovePictures;
 
     public IndexPage() {
-        baseUrl = TEST_URL;
+        baseUrl = TEST_URL1;
     }
 
     //open Index Page

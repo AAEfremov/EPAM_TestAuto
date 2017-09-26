@@ -1,7 +1,6 @@
-package Homework2;
+package data_providers;
 
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 public class DataProviders {
 

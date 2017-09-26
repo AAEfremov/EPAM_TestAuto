@@ -8,6 +8,8 @@ public enum LoginCredentials {
     private String password;
     private String username;
 
+
+
     LoginCredentials(String login, String password, String username){
         this.login = login;
         this.password = password;

@@ -1,5 +1,6 @@
 package Homework2;
 
+import data_providers.DataProviders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class CheckTextsUnderImages {
     public void setUp() {
         System.setProperty(PROPERTY1, PROPERTY2);
         driver = new ChromeDriver();
-        driver.navigate().to(IMAGE_TEXT_URL);
+        driver.navigate().to(TEST_URL1);
     }
 
     @AfterSuite

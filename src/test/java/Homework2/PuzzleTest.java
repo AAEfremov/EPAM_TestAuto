@@ -8,8 +8,8 @@ import org.testng.annotations.*;
 import static data.HomeworkConstants.*;
 
 public class PuzzleTest {
-    WebDriver driver;
-    long methodStart;
+    private WebDriver driver;
+    private long methodStart;
 
     @BeforeSuite
     public void setProperties(){
@@ -19,7 +19,7 @@ public class PuzzleTest {
     @BeforeTest
     public void initiateDriver(){
         driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL1);
+        driver.navigate().to(TEST_URL2);
     }
 
     @BeforeClass

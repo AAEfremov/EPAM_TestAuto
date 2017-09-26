@@ -13,7 +13,7 @@ public class RegressionTests {
     public void simpleEPAMTest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL1);
+        driver.navigate().to(TEST_URL2);
         Assert.assertEquals(driver.getTitle(),
                 "EPAM | Software Product Development Services");
         driver.close();
@@ -23,7 +23,7 @@ public class RegressionTests {
     public void simpleJDITest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL);
+        driver.navigate().to(TEST_URL1);
         Assert.assertEquals(driver.getTitle(),
                 "Index Page");
         driver.close();
@@ -33,7 +33,7 @@ public class RegressionTests {
     public void simpleEPAMTrainingTest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL3);
+        driver.navigate().to("https://www.training.ru/");
         Assert.assertEquals(driver.getTitle(),
                 "EPAM Training Portal");
         driver.close();
@@ -42,7 +42,7 @@ public class RegressionTests {
     public void simpleGoogleTest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL4);
+        driver.navigate().to("https://www.google.ru/");
         Assert.assertEquals(driver.getTitle(),
                 "Google");
         driver.close();
