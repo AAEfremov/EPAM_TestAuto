@@ -1,11 +1,11 @@
-package core;
+package data;
 
-public class HomeworkConstants1 {
+public class HomeworkConstants {
 
     public static final String PROPERTY1 = "webdriver.chrome.driver";
     public static final String PROPERTY2 = "chromedriver.exe";
     public static final String TEST_URL1 = "https://www.epam.com";
-    public static final String TEST_URL2 = "https://jdi-framework.github.io/tests/";
+    public static final String TEST_URL = "https://jdi-framework.github.io/tests/";
     public static final String TEST_URL3 = "https://www.training.ru/";
     public static final String TEST_URL4 = "https://www.google.ru/";
     public static final String TEST_URL5 = "https://www.instagram.com/";

@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import static core.HomeworkConstants1.*;
+import static data.HomeworkConstants.*;
 
 public class PuzzleTest {
     WebDriver driver;

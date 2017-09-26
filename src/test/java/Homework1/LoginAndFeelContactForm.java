@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-import static core.HomeworkConstants1.*;
+import static data.HomeworkConstants.*;
 
 public class LoginAndFeelContactForm {
 
@@ -30,7 +30,7 @@ public class LoginAndFeelContactForm {
     @Test
     public void loginAndFillContactForm() throws IOException {
         // Open test site by URL
-        driver.navigate().to(TEST_URL2);
+        driver.navigate().to(TEST_URL);
         driver.manage().window().maximize();
 
         // Assert Browser title

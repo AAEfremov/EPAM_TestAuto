@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-import static core.HomeworkConstants1.*;
+import static data.HomeworkConstants.*;
 
 public class CheckTextsUnderImages {
 

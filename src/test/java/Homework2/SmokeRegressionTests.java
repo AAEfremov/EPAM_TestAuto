@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static core.HomeworkConstants1.*;
+import static data.HomeworkConstants.*;
 
 public class SmokeRegressionTests {
 
@@ -23,7 +23,7 @@ public class SmokeRegressionTests {
     public void simpleJDITest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to(TEST_URL2);
+        driver.navigate().to(TEST_URL);
         Assert.assertEquals(driver.getTitle(),
                 "Index Page");
         driver.close();
