@@ -1,0 +1,15 @@
+*.iml
+.idea/
+target/
+*.zip
+.logs/
+*.xlsx
+*.html
+bin/
+obj/
+.vs/
+packages/
+*.nupkg
+*.nuspec
+*.exe
+temp/
