@@ -8,7 +8,7 @@ import pages.IndexPage;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
-import static data.enums.DatesPage.SliderOffsets.*;
+import static data.enums.DatesPage.SliderHandles.*;
 import static data.enums.indexPage.LoginCredentials.USER1;
 
 public class CheckDatesFunctionality {
@@ -41,20 +41,21 @@ public class CheckDatesFunctionality {
         datesPage.scrollDown();
 
         //set and check MAX-range
-        datesPage.moveLeftSliderHandleAndCheckValue(LEFT_MIN);
-        datesPage.moveRightSliderHandleAndCheckValue(RIGHT_MAX);
+        datesPage.setHandlePosition(LEFT_HANDLE, 0);
+        datesPage.setHandlePosition(RIGHT_HANDLE, 100);
 
         //set and check MIN-left range
-        datesPage.moveLeftSliderHandleAndCheckValue(LEFT_MIN);
-        datesPage.moveRightSliderHandleAndCheckValue(RIGHT_MIN);
+        datesPage.setHandlePosition(LEFT_HANDLE, 0);
+        datesPage.setHandlePosition(RIGHT_HANDLE, 0);
 
         //set and check MIN-right range
-        datesPage.moveRightSliderHandleAndCheckValue(RIGHT_MAX);
-        datesPage.moveLeftSliderHandleAndCheckValue(LEFT_MAX);
+        datesPage.setHandlePosition(RIGHT_HANDLE, 100);
+        datesPage.setHandlePosition(LEFT_HANDLE, 100);
+
 
         //set and check random range
-        datesPage.moveLeftSliderHandleAndCheckValue(VALUE1);
-        datesPage.moveRightSliderHandleAndCheckValue(VALUE2);
+        datesPage.setHandlePosition(LEFT_HANDLE, 30);
+        datesPage.setHandlePosition(RIGHT_HANDLE, 70);
     }
 
     @AfterClass

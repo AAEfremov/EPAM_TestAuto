@@ -2,20 +2,22 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
-import data.enums.DatesPage.SliderOffsets;
+import com.codeborne.selenide.SelenideElement;
+import data.enums.DatesPage.SliderHandles;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.page;
-import static data.enums.DatesPage.SliderHandles.LEFT_HANDLE;
-import static data.enums.DatesPage.SliderHandles.RIGHT_HANDLE;
 
 public class DatesPage extends ChromeSetup {
 
     private Header header = page(Header.class);
     private LeftSection leftSection = page(LeftSection.class);
+
+    @FindBy(css = ".ui-slider")
+    SelenideElement sliderTrack;
 
     @FindBy(css = ".ui-slider-handle")
     private ElementsCollection sliderHandles;
@@ -31,25 +33,38 @@ public class DatesPage extends ChromeSetup {
         Selenide.executeJavaScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    //move and check left handler
-    public void moveLeftSliderHandleAndCheckValue(SliderOffsets sliderOffset) {
+    //get real handle step size
+    private Double getStep() {
 
-        actions().clickAndHold(sliderHandles.get(LEFT_HANDLE.getHandle()))
-                .moveByOffset(sliderOffset.getOffset(), 0)
-                .release()
-                .build()
-                .perform();
-        sliderHandles.get(LEFT_HANDLE.getHandle()).shouldHave(exactText(sliderOffset.getValue()));
+        return Double.parseDouble(String.valueOf(sliderTrack.getSize().width)) / 100.0;
     }
 
-    //move and check right handler
-    public void moveRightSliderHandleAndCheckValue(SliderOffsets sliderOffset) {
+    //get handle current position
+    private Double getCurrentPosition(SliderHandles handle) {
 
-        actions().clickAndHold(sliderHandles.get(RIGHT_HANDLE.getHandle()))
-                .moveByOffset(sliderOffset.getOffset(), 0)
-                .release()
-                .build()
-                .perform();
-        sliderHandles.get(RIGHT_HANDLE.getHandle()).shouldHave(exactText(sliderOffset.getValue()));
+        Double sliderCenterPx = Double.parseDouble(sliderHandles.get(handle.getHandle()).getCssValue("left")
+                .replaceAll("px", "")) + (sliderHandles.get(handle.getHandle())).getSize().width / 2.0;
+
+        return sliderCenterPx / getStep();
+    }
+
+    //move and check handler
+    public void setHandlePosition(SliderHandles handle, Integer position) {
+
+        int extraOffset = 10; //need because handles aren't accurately determined
+        Double offset = (position - getCurrentPosition(handle)) * getStep();
+        actions().dragAndDropBy(sliderHandles.get(handle.getHandle()), (int) Math.round(offset) + extraOffset, 0).perform();
+        sliderHandles.get(handle.getHandle()).shouldHave(exactText(position.toString()));
+
     }
 }
+
+
+
+
+
+
+
+
+
+
