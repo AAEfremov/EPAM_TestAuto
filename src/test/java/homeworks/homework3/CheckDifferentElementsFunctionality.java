@@ -56,11 +56,11 @@ public class CheckDifferentElementsFunctionality {
         diffElemPage.selectAndCheckCheckbox(WATER);
         diffElemPage.selectAndCheckCheckbox(WIND);
 
-        //select radio Selen
+        //8 select radio Selen
         diffElemPage.selectAndCheckRadio(SELEN);
 
         //select in dropdown Yellow
-        diffElemPage.selectAndCheckDropdown(YELLOW);
+        diffElemPage.selectAndCheckColor(YELLOW);
 
         //check value and(or) status (true|false) in log section
         diffElemPage.checkLogEntries(WATER.getLabel(), true);

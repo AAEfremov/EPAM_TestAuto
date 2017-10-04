@@ -114,7 +114,7 @@ public class DiffElementsPage extends ChromeSetup {
     }
 
     @Step("Select and check dropdown")
-    public void selectAndCheckDropdown(ColorsOptions color) {
+    public void selectAndCheckColor(ColorsOptions color) {
 
         colorsDropdownSelector.click();
 

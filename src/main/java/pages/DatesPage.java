@@ -51,14 +51,17 @@ public class DatesPage extends ChromeSetup {
         return sliderCenterPx / getStep();
     }
 
-    @Step("Move and check handler")
+    @Step("Move handler")
     public void setHandlePosition(SliderHandles handle, Integer position) {
 
         int extraOffset = 10; //need because handles aren't accurately determined
         Double offset = (position - getCurrentPosition(handle)) * getStep();
         actions().dragAndDropBy(sliderHandles.get(handle.getHandle()), (int) Math.round(offset) + extraOffset, 0).perform();
-        sliderHandles.get(handle.getHandle()).shouldHave(exactText(position.toString()));
+    }
 
+    public void checkHandlePosition(SliderHandles handle, Integer position) {
+
+        sliderHandles.get(handle.getHandle()).shouldHave(exactText(position.toString()));
     }
 }
 

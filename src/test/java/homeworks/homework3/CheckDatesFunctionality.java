@@ -42,20 +42,28 @@ public class CheckDatesFunctionality {
 
         //set and check MAX-range
         datesPage.setHandlePosition(LEFT_HANDLE, 0);
+        datesPage.checkHandlePosition(LEFT_HANDLE, 0);
         datesPage.setHandlePosition(RIGHT_HANDLE, 100);
+        datesPage.checkHandlePosition(RIGHT_HANDLE, 100);
 
         //set and check MIN-left range
         datesPage.setHandlePosition(LEFT_HANDLE, 0);
+        datesPage.checkHandlePosition(LEFT_HANDLE, 0);
         datesPage.setHandlePosition(RIGHT_HANDLE, 0);
+        datesPage.checkHandlePosition(RIGHT_HANDLE, 0);
 
         //set and check MIN-right range
         datesPage.setHandlePosition(RIGHT_HANDLE, 100);
+        datesPage.checkHandlePosition(RIGHT_HANDLE, 100);
         datesPage.setHandlePosition(LEFT_HANDLE, 100);
+        datesPage.checkHandlePosition(LEFT_HANDLE, 100);
 
 
         //set and check random range
         datesPage.setHandlePosition(LEFT_HANDLE, 30);
+        datesPage.checkHandlePosition(LEFT_HANDLE, 30);
         datesPage.setHandlePosition(RIGHT_HANDLE, 70);
+        datesPage.checkHandlePosition(RIGHT_HANDLE, 70);
     }
 
     @AfterClass
