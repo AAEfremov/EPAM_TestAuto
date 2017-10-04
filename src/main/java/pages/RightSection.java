@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
@@ -21,7 +22,7 @@ public class RightSection extends ChromeSetup {
     @FindBy(css = ".info-panel-header")
     ElementsCollection headers;
 
-    //check right section interface
+    @Step("Check right section interface")
     public void checkInterface() {
 
         //headers

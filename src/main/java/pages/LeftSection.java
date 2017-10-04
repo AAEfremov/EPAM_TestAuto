@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
@@ -21,7 +22,7 @@ class LeftSection extends ChromeSetup {
     @FindBy(css = ".sidebar-menu li")
     private ElementsCollection subMenuElements;
 
-    //check left SERVICE dropdown menu
+    @Step("Check left Service dropdown menu")
     void checkLeftServiceDropdown() {
 
         //service element
@@ -35,7 +36,7 @@ class LeftSection extends ChromeSetup {
         leftServiceElements.shouldHave(texts(ELEMENTS_NAMES.getElementsNames()));
     }
 
-    //check left section interface
+    @Step("Check left section interface")
     void checkInterface() {
 
         //sub-menu elements
@@ -44,8 +45,6 @@ class LeftSection extends ChromeSetup {
             subMenuElement.shouldBe(visible);
         }
         subMenuElements.shouldHave(texts(SUB_MENU_ELEMENTS.getNames()));
-
-
     }
 
 }

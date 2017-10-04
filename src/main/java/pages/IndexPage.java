@@ -4,6 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
@@ -15,6 +17,7 @@ import static data.HomeworkConstants.TEST_URL1;
 import static data.enums.indexPage.TextsAbovePictures.ABOVE_TEXTS;
 import static data.enums.indexPage.TextsUnderPictures.UNDER_TEXTS;
 
+@Title("Checking Index Page work")
 public class IndexPage extends ChromeSetup {
 
     private Header header = page(Header.class);
@@ -60,12 +63,12 @@ public class IndexPage extends ChromeSetup {
         baseUrl = TEST_URL1;
     }
 
-    //open Index Page
+    @Step("Open Index Page")
     public void openPage() {
         open("/");
     }
 
-    //enter the account
+    @Step("Enter the account")
     public void login(String loginName, String password){
         loginForm.click();
         usernameField.sendKeys(loginName);
@@ -73,13 +76,13 @@ public class IndexPage extends ChromeSetup {
         submitButton.click();
     }
 
-    //check current user
+    @Step("Check current user")
     public void checkUsername(String userName) {
         usernameProfile.shouldBe(visible);
         usernameProfile.shouldHave(text(userName));
     }
 
-    //check page interface
+    @Step("Check page interface")
     public void checkInterface(){
 
         //pictures
@@ -102,7 +105,7 @@ public class IndexPage extends ChromeSetup {
         //textsAbovePictures.shouldHave(texts(ABOVE_TEXTS.getTexts())); //!!!: failed in maven executor
     }
 
-    //check SERVICE dropdown menu
+    @Step("Check Service dropdown menu")
     public void checkServiceDropdown() {
 
         header.checkHeaderServiceDropdown();

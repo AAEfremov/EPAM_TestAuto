@@ -6,10 +6,14 @@ import com.codeborne.selenide.SelenideElement;
 import data.enums.DatesPage.SliderHandles;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.page;
+
+@Title("Check Dates page work")
 
 public class DatesPage extends ChromeSetup {
 
@@ -22,18 +26,17 @@ public class DatesPage extends ChromeSetup {
     @FindBy(css = ".ui-slider-handle")
     private ElementsCollection sliderHandles;
 
-    //open Dates Page
+    @Step("Open Dates Page")
     public void openPage() {
         header.getHeaderService().click();
         header.getHeaderServiceElements().get(1).click();
     }
 
-    //scroll down Dates Page
+    @Step("Scroll down Dates Page")
     public void scrollDown() {
         Selenide.executeJavaScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    //get real handle step size
     private Double getStep() {
 
         return Double.parseDouble(String.valueOf(sliderTrack.getSize().width)) / 100.0;
@@ -48,7 +51,7 @@ public class DatesPage extends ChromeSetup {
         return sliderCenterPx / getStep();
     }
 
-    //move and check handler
+    @Step("Move and check handler")
     public void setHandlePosition(SliderHandles handle, Integer position) {
 
         int extraOffset = 10; //need because handles aren't accurately determined

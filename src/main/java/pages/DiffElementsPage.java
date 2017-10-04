@@ -7,6 +7,8 @@ import data.enums.diffElementsPage.ColorsOptions;
 import data.enums.diffElementsPage.RadioLabels;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
@@ -16,6 +18,7 @@ import static data.enums.diffElementsPage.CheckboxLabels.CHECKBOX_LABELS;
 import static data.enums.diffElementsPage.ColorsOptions.COLORS_OPTIONS;
 import static data.enums.diffElementsPage.RadioLabels.RADIO_LABELS;
 
+@Title("Check Different Elements page work")
 public class DiffElementsPage extends ChromeSetup {
 
     private Header header = page(Header.class);
@@ -50,11 +53,13 @@ public class DiffElementsPage extends ChromeSetup {
     ElementsCollection logs;
 
 
+    @Step("Open Different Elements Page")
     public void openPage() {
         header.getHeaderService().click();
         header.getHeaderServiceElements().get(5).click();
     }
 
+    @Step("Check page interface")
     public void checkInterface() {
 
         //check checkboxes
@@ -92,7 +97,7 @@ public class DiffElementsPage extends ChromeSetup {
         rightSection.checkInterface();
     }
 
-    //select and check checkbox if not selected
+    @Step("Select and check checkbox if not selected")
     public void selectAndCheckCheckbox(CheckboxLabels checkboxLabel) {
 
         if(!checkboxes.get(checkboxLabel.ordinal()).is(checked)) {
@@ -101,14 +106,14 @@ public class DiffElementsPage extends ChromeSetup {
         }
     }
 
-    //select and check radio
+    @Step("Select and check radio")
     public void selectAndCheckRadio(RadioLabels radioLabel) {
 
         radios.get(radioLabel.ordinal()).click();
         radios.get(radioLabel.ordinal()).shouldBe(checked);
     }
 
-    //select and check dropdown
+    @Step("Select and check dropdown")
     public void selectAndCheckDropdown(ColorsOptions color) {
 
         colorsDropdownSelector.click();
@@ -118,14 +123,14 @@ public class DiffElementsPage extends ChromeSetup {
         colorsDropdownSelector.shouldHave(text(color.getColor()));
     }
 
-    //check logs for checkboxes
+    @Step("Check logs for checkboxes")
     public void checkLogEntries(String value, Boolean status){
 
         rightSection.logBody.shouldBe(visible);
         logs.find(text(value)).should(text(status.toString()));
     }
 
-    //check logs for radios and dropdown
+    @Step("Check logs for radios and dropdown")
     public void checkLogEntries(String tag, String value){
 
         rightSection.logBody.shouldBe(visible);
@@ -133,16 +138,12 @@ public class DiffElementsPage extends ChromeSetup {
     }
 
 
-    //unselect and check checkbox if selected
+    @Step("Unselect and check checkbox if selected")
     public void unselectAndCheckCheckbox(CheckboxLabels checkboxLabel) {
 
-        if(checkboxes.get(checkboxLabel.ordinal()).is(checked)) {
+        if (checkboxes.get(checkboxLabel.ordinal()).is(checked)) {
             checkboxes.get(checkboxLabel.ordinal()).click();
             checkboxes.get(checkboxLabel.ordinal()).shouldNotBe(checked);
         }
-
     }
-
-
-
 }

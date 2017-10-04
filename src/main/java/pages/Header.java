@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import init_classes.ChromeSetup;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
@@ -25,6 +26,7 @@ class Header extends ChromeSetup {
         return headerServiceElements;
     }
 
+    @Step("Check Header Service dropdown menu")
     void checkHeaderServiceDropdown() {
 
         //header SERVICE element
