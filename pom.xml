@@ -9,9 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <suiteXmlFile>src/test/resources/checkTask3.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/checkTask5.xml</suiteXmlFile>
         <allure.version>1.5.2</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
+        <cucumber.version>1.2.5</cucumber.version>
     </properties>
 
     <build>
@@ -103,7 +104,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.11</version>
+            <version>6.9.10</version>
         </dependency>
 
         <dependency>
@@ -122,6 +123,20 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.5</version>
         </dependency>
 
     </dependencies>

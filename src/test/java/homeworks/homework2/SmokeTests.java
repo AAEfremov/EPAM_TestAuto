@@ -1,15 +1,14 @@
-package Homework2;
+package homeworks.homework2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static data.HomeworkConstants.*;
+public class SmokeTests {
 
-public class SmokeRegressionTests {
-
-    @Test(groups = {"regression", "smoke"})
+    @Test(groups = "smoke")
     public void simpleEPAMTest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
@@ -19,23 +18,13 @@ public class SmokeRegressionTests {
         driver.close();
     }
 
-    @Test(groups = {"regression", "smoke"})
+    @Test(groups = "smoke")
     public void simpleJDITest() {
         System.setProperty(PROPERTY1, PROPERTY2);
         WebDriver driver = new ChromeDriver();
         driver.navigate().to(TEST_URL1);
         Assert.assertEquals(driver.getTitle(),
                 "Index Page");
-        driver.close();
-    }
-
-    @Test(groups = {"regression", "smoke"})
-    public void simpleInstagramTest() {
-        System.setProperty(PROPERTY1, PROPERTY2);
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://www.instagram.com/");
-        Assert.assertEquals(driver.getTitle(),
-                "Instagram");
         driver.close();
     }
 }

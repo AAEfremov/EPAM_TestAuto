@@ -1,4 +1,4 @@
-package Homework2;
+package homeworks.homework2;
 
 import data_providers.DataProviders;
 import org.openqa.selenium.By;

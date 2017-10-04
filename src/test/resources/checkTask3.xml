@@ -3,8 +3,8 @@
 <suite name="Suite3" verbose="1">
     <test name="CheckTask3" >
         <classes>
-            <class name="Homework3.CheckDatesFunctionality"/>
-            <class name="Homework3.CheckDifferentElementsFunctionality"/>
+            <class name="homeworks.homework3.CheckDifferentElementsFunctionality"/>
+            <class name="homeworks.homework3.CheckDatesFunctionality"/>
         </classes>
     </test>
 </suite>

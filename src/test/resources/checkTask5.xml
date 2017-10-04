@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suit3" verbose="1">
-    <test name="Puzzle" >
+<suite name="Suite5" verbose="1">
+    <test name="CheckTask5" >
         <classes>
-            <class name="homeworks.homework2.PuzzleTest"/>
+            <class name="runner.TestRunner"/>
         </classes>
     </test>
 </suite>

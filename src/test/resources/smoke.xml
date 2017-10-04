@@ -9,9 +9,9 @@
         </groups>
 
         <classes>
-            <class name="Homework2.SmokeTests"/>
-            <class name="Homework2.RegressionTests"/>
-            <class name="Homework2.SmokeRegressionTests"/>
+            <class name="homeworks.homework2.SmokeTests"/>
+            <class name="homeworks.homework2.RegressionTests"/>
+            <class name="homeworks.homework2.SmokeRegressionTests"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package Homework3;
+package homeworks.homework3;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

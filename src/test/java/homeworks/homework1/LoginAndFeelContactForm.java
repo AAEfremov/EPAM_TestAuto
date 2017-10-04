@@ -1,6 +1,5 @@
-package Homework1;
+package homeworks.homework1;
 
-import data.enums.ContactFormPage.UserData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
